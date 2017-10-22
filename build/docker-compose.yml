@@ -1,9 +1,18 @@
 version: "3"
 
 services:
-  remote-skills:
+  app:
     build:
       context: ../
       dockerfile: build/app.dockerfile
     ports:
-      - 3000:1337
+      - 1337:1337
+    # volumes:
+    #   - ../:/srv/app
+
+  wwr_worker:
+    build:
+      context: ../
+      dockerfile: build/wwr_worker.dockerfile
+    volumes:
+      - ../workers/wwr_worker:/srv/wwr_worker
