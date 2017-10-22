@@ -1,12 +1,11 @@
 FROM node
-
 WORKDIR /srv/app
 
 # Upgrade NPM with Yarn (facepalm)
 RUN yarn global add npm
-
+RUN npm install sails \
+  grunt
 COPY . .
-RUN npm install sails
 
 EXPOSE 1337
-CMD node app.js
+CMD npm start

@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  remote-skills:
+    build:
+      context: ../
+      dockerfile: build/app.dockerfile
+    ports:
+      - 3000:1337
